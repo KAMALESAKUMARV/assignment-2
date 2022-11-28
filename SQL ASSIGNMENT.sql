@@ -1,0 +1,129 @@
+CREATE TABLE BOOKDETAILS(slno INT,AuthorName varchar(40),Title varchar(50),CopyrightDate numeric,price int);
+INSERT INTO BOOKDETAILS(slno,AuthorName,Title,CopyrightDate,price)VALUES(1,'preece.j','Human computer interaction',1994,120);
+INSERT INTO BOOKDETAILS(slno,AuthorName,Title,CopyrightDate,price)VALUES(2,'Bradly.j.c','Programming in visual basic 5.0',1998,678);
+INSERT INTO BOOKDETAILS(slno,AuthorName,Title,CopyrightDate,price)VALUES(3,'Wright.p','Beginning visual basic5',1997,1145);
+INSERT INTO BOOKDETAILS(slno,AuthorName,Title,CopyrightDate,price)VALUES(4,'Gulbransen.d','Using Dynamic HTML',1992,786);
+INSERT INTO BOOKDETAILS(slno,AuthorName,Title,CopyrightDate,price)VALUES(5,'Person.r','Using Excel version 5 for windows',1993,540);
+SELECT* FROM BOOKDETAILS
+
+#min and max
+SELECT MIN(price)
+FROM BOOKDETAILS
+WHERE price<600;
+
+SELECT MAX(price)
+FROM BOOKDETAILS
+WHERE price<600;
+
+#AVERAGE
+SELECT AVG(price)
+FROM BOOKDETAILS;
+
+#COUNTING
+SELECT COUNT(price)
+FROM BOOKDETAILS;
+
+
+#SUM
+SELECT SUM(price)
+FROM BOOKDETAILS;
+
+# LOGICAL OPERATIONS
+SELECT * FROM BOOKDETAILS WHERE price<500 and AuthorName='preece.j';
+SELECT * FROM BOOKDETAILS WHERE price =120 OR price= 540;
+
+#ADDINGCOLUMN 
+ALTER TABLE BOOKDETAILS
+ADD Ratings float ;
+SELECT*FROM BOOKDETAILS
+
+#DROPCOLUMN
+ALTER TABLE BOOKDETAILS
+DROP COLUMN Ratings;
+SELECT*FROM BOOKDETAILS
+
+#CREATEANOTHERTABLE
+CREATE TABLE BOOKDETAILS1(slno INT,AuthorName varchar(40),Title varchar(50),CopyrightDate numeric,price int);
+INSERT INTO BOOKDETAILS1(slno,AuthorName,Title,CopyrightDate,price)VALUES(1,'Ai Weiwei.j','1000 years of joys and sorrows',1994,420);
+INSERT INTO BOOKDETAILS1(slno,AuthorName,Title,CopyrightDate,price)VALUES(2,'Nadia Owusu','Aftershock',2000,778);
+INSERT INTO BOOKDETAILS1(slno,AuthorName,Title,CopyrightDate,price)VALUES(3,'Wright.p','A different kind of war',2001,1245);
+INSERT INTO BOOKDETAILS1(slno,AuthorName,Title,CopyrightDate,price)VALUES(4,'J.K.rowling','Harry potter',2002,786);
+INSERT INTO BOOKDETAILS1(slno,AuthorName,Title,CopyrightDate,price)VALUES(5,'Anthony veasna','Afterparties',2002,540);
+SELECT* FROM BOOKDETAILS1
+
+#INNERJOIN
+SELECT BOOKDETAILS.AuthorName,BOOKDETAILS.price,BOOKDETAILS1.AuthorName,BOOKDETAILS1.price
+FROM BOOKDETAILS
+INNER JOIN BOOKDETAILS1
+ON BOOKDETAILS.price = BOOKDETAILS1.price;
+
+#FULLJOIN
+SELECT BOOKDETAILS.AuthorName,BOOKDETAILS.price,BOOKDETAILS1.AuthorName,BOOKDETAILS1.price
+FROM BOOKDETAILS
+FULL JOIN BOOKDETAILS1
+ON BOOKDETAILS.price = BOOKDETAILS1.price;
+
+#LEFTJOIN
+SELECT BOOKDETAILS.AuthorName,BOOKDETAILS.price,BOOKDETAILS1.AuthorName,BOOKDETAILS1.price
+FROM BOOKDETAILS
+LEFT JOIN BOOKDETAILS1
+ON BOOKDETAILS.price = BOOKDETAILS1.price;
+
+#RIGHTJOIN
+SELECT BOOKDETAILS.AuthorName,BOOKDETAILS.price,BOOKDETAILS1.AuthorName,BOOKDETAILS1.price
+FROM BOOKDETAILS
+RIGHT JOIN BOOKDETAILS1
+ON BOOKDETAILS.price = BOOKDETAILS1.price;
+
+#leftouterjoin
+SELECT BOOKDETAILS.AuthorName,BOOKDETAILS.price,BOOKDETAILS1.AuthorName,BOOKDETAILS1.price
+FROM BOOKDETAILS
+LEFT OUTER JOIN BOOKDETAILS1
+ON BOOKDETAILS.price = BOOKDETAILS1.price;
+
+#RIGHTOUTERJOIN
+SELECT BOOKDETAILS.AuthorName,BOOKDETAILS.price,BOOKDETAILS1.AuthorName,BOOKDETAILS1.price
+FROM BOOKDETAILS
+RIGHT OUTER JOIN BOOKDETAILS1
+ON BOOKDETAILS.price = BOOKDETAILS1.price;
+
+#fullouterjoin
+SELECT BOOKDETAILS.AuthorName,BOOKDETAILS.price,BOOKDETAILS1.AuthorName,BOOKDETAILS1.price
+FROM BOOKDETAILS
+FULL OUTER JOIN BOOKDETAILS1
+ON BOOKDETAILS.price = BOOKDETAILS1.price;
+
+#descending 
+select *from BOOKDETAILS order by price desc;
+
+#ascending
+select *from BOOKDETAILS1 order by price asc;
+
+#GIVING TEMPORARY NAME TO A COLUMN
+SELECT AuthorName AS Authordetails
+FROM BOOKDETAILS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
